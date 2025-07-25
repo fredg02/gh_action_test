@@ -20,11 +20,12 @@ jobs:
           ref: 'main'
           token:  ${{ secrets.ACTIONS_GITHUB_TOKEN }}
       - name: setup git config
-            run: |
-              git config user.name "GitHub Actions Bot"
-              git config user.email "<>"
-      - run: > 
-        echo "$(date)" >> README.md
-        git add README.md
-        git commit -m "Next commit"
-        git push origin main
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: commit change
+        run: |  
+          echo "$(date)" >> README.md
+          git add README.md
+          git commit -m "Next commit"
+          git push origin main
